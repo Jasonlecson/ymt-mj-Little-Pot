@@ -1,0 +1,148 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Jason Lecson, LIF, LIC=IK1BF-61FWJ-NNPAF-6P3K4-PK1D3-NNBMZ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      Segger\JL2CM3.dll V2.99.40.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+C:\Users\lujin\Documents\Git\STM32F10xTemplateNew\Progect\Progect.uvprojx
+Project File Date:  01/30/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling stm32f10x_it.c...
+compiling System.c...
+..\User\System.c(55): warning:  #940-D: missing return statement at end of non-void function "GetSystemResetType" 
+  }
+..\User\System.c: 1 warning, 0 errors
+compiling cString.c...
+compiling gpio.c...
+compiling DMA.c...
+compiling stmflash.c...
+..\User\stmflash.c(140): warning:  #188-D: enumerated type mixed with another type
+  				FlashStatus = 0;//读出和写入的一致
+..\User\stmflash.c(142): warning:  #188-D: enumerated type mixed with another type
+  				FlashStatus = 5;
+..\User\stmflash.c: 2 warnings, 0 errors
+compiling delay.c...
+compiling key.c...
+compiling timer.c...
+compiling usart.c...
+..\User\usart.c(338): warning:  #177-D: variable "data"  was declared but never referenced
+  	uint8_t data = ch;
+..\User\usart.c: 1 warning, 0 errors
+compiling iwdg.c...
+compiling parse.c...
+compiling ADC.c...
+compiling IAP.c...
+compiling main.c...
+..\User\main.c(311): warning:  #177-D: variable "data"  was declared but never referenced
+  	u16 data=0;
+..\User\main.c(973): warning:  #177-D: variable "value"  was declared but never referenced
+  	int value=0;
+..\User\main.c(975): warning:  #177-D: variable "LostValue"  was declared but never referenced
+  	int LostValue = 4;
+..\User\main.c(1440): warning:  #188-D: enumerated type mixed with another type
+  		data_parse_struct_t.message_type=0;
+..\User\main.c(1918): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  					if(strlen(data_parse_struct_t.piid[0]) == 1 && memcmp(data_parse_struct_t.piid[0],"1",1)==0)
+..\User\main.c(1962): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						MainLen = strlen(data_parse_struct_t.value[0]);
+..\User\main.c(1963): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						IntValue = atoi(data_parse_struct_t.value[0]);
+..\User\main.c(2001): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						MainLen = strlen(data_parse_struct_t.value[0]);
+..\User\main.c(2002): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						IntValue = atoi(data_parse_struct_t.value[0]);
+..\User\main.c(2030): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						MainLen = strlen(data_parse_struct_t.value[0]);
+..\User\main.c(2031): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						IntValue = atoi(data_parse_struct_t.value[0]);
+..\User\main.c(2060): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						MainLen = strlen(data_parse_struct_t.value[0]);
+..\User\main.c(2064): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  							Valuell = atoi(&data_parse_struct_t.value[0][1]);
+..\User\main.c(2162): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						MainLen = strlen(data_parse_struct_t.value[0]);
+..\User\main.c(2163): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  						IntValue = atoi(data_parse_struct_t.value[0]);
+..\User\main.c(2538): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
+  					if(strlen(data_parse_struct_t.piid[0]) == 1 && memcmp(data_parse_struct_t.piid[0],"1",1)==0)//LED
+..\User\main.c(1425): warning:  #550-D: variable "j"  was set but never used
+  	int i=0,j=0;
+..\User\main.c(3142): warning:  #167-D: argument of type "int16_t *" is incompatible with parameter of type "uint16_t *"
+  	FlashGetSafe(&safe_temperature[0],&safe_temperature[1],safe_type_temperature);
+..\User\main.c(3142): warning:  #167-D: argument of type "int16_t *" is incompatible with parameter of type "uint16_t *"
+  	FlashGetSafe(&safe_temperature[0],&safe_temperature[1],safe_type_temperature);
+..\User\main.c: 19 warnings, 0 errors
+compiling FlashData.c...
+compiling TM601.c...
+compiling SmartConfig.c...
+compiling iic2.c...
+compiling pwm.c...
+..\User\pwm.h(7): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\pwm.c: 1 warning, 0 errors
+compiling flash_helper.c...
+compiling AHT10_I2C.c...
+compiling BH1750.c...
+..\User\BH1750.c(181): warning:  #177-D: variable "value"  was declared but never referenced
+  	int value=0;
+..\User\BH1750.c(182): warning:  #177-D: variable "temp"  was declared but never referenced
+  	char temp[2];
+..\User\BH1750.c(183): warning:  #177-D: variable "sensor_lignt_exponent"  was declared but never referenced
+  	float sensor_lignt_exponent,sensor_lignt_mantissa;
+..\User\BH1750.c(183): warning:  #177-D: variable "sensor_lignt_mantissa"  was declared but never referenced
+  	float sensor_lignt_exponent,sensor_lignt_mantissa;
+..\User\BH1750.c: 4 warnings, 0 errors
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+compiling misc.c...
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_iwdg.c...
+compiling BufferManage.c...
+compiling stm32f10x_gpio.c...
+compiling LoopList.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_tim.c...
+linking...
+Program Size: Code=50244 RO-data=484 RW-data=888 ZI-data=11816  
+FromELF: creating hex file...
+After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe  --bin -o  .\Progect\fw.bin  .\output\Progect.axf
+".\output\Progect.axf" - 0 Error(s), 28 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\lujin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>
