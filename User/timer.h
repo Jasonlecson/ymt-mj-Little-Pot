@@ -36,7 +36,7 @@ _TIME_Ex_ u32 fertility_control_cnt;
 
 _TIME_Ex_ void Timer4_Config(void);
 
-_TIME_Ex_ void Timer2_Config(void);
+//_TIME_Ex_ void Timer2_Config(void);
 
 _TIME_Ex_ int uart_send_delay;
 

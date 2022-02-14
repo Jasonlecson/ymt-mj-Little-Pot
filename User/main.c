@@ -42,7 +42,7 @@
 //#include "pwm.h"
 #include "flash_helper.h"
 
-#define define_mcu_version "0016"
+#define define_mcu_version "0017"
 
 /*
 1.硬件版本大于等于2支持补光灯
@@ -342,7 +342,7 @@ int main(void)
 	GpioInit();
 	DelayInit();
 	
-	Timer2_Config();
+//	Timer2_Config();
 	Timer4_Config();
 	AHT10_Init();
 	IIC2_Init();
@@ -623,14 +623,14 @@ void illumination_intensity_statistics(void){
 * @example 
 **/
 void Watering(void){
-	if(TIM2->CCR4 == 400 && WateringFlag==0){
+	if(PAout(3)==1 && WateringFlag==0){
 		WateringFlag=1;
 	}
 	if(WateringFlag==1){
 		if(WateringDelayTimer>5000){//5S
 			WateringDelayTimer=0;
 			WateringFlag=0;
-			TIM2->CCR4 = 0;
+			PAout(3) = 0;
 		}
 	}
 }
@@ -661,7 +661,7 @@ void WateringCirculationFunction(void)
 		//在早8点到晚8点,或者用户设置不限制时间段
 		if((lcTime->tm_hour>=watering_timer_start && lcTime->tm_hour<watering_timer_stop) || ReportEventFlag==1){
 			if(humidity<safe_humidity[0] && WateringMode == '0' && water_stage>safe_water_l){
-				TIM2->CCR4 = 400;
+				PAout(3) = 1;
 			}
 		}
 	}
@@ -758,7 +758,7 @@ void SmartConfig(void){
 	if(key_down_count_copy==1)
 	{
 		key_down_count_copy=0;
-		TIM2->CCR4 = 400;
+		PAout(3) = 1;
 	}
 	else if(key_down_count_copy==2)
 	{
@@ -1507,9 +1507,9 @@ void processing_data(void)
 								
 //								if(humidity<safe_humidity[1])
 //								{
-									TIM2->CCR4 = 400;
+									PAout(3) = 1;
 									
-									if(TIM2->CCR4 == 400)
+									if(PAin(3) == 1)
 									{
 									  //water_count++;//浇水次数加一
 										MainLen = sprintf(MainBuffer,"%s %s %s %s\r","result","2","2","0");
@@ -1530,8 +1530,8 @@ void processing_data(void)
 						}
 						else if(memcmp(data_parse_struct_t.value[0],"false",5)==0)//关闭浇水
 						{
-							TIM2->CCR4 = 0;
-							if(TIM2->CCR4 == 0)
+							PAout(3) = 0;
+							if(PAin(3) == 0)
 							{
 								MainLen = sprintf(MainBuffer,"%s %s %s %s\r","result","2","2","0");
 								BufferManageWrite(&buff_manage_struct_t,MainBuffer,MainLen);
@@ -2465,7 +2465,7 @@ void processing_data(void)
 					}
 					else if(memcmp(data_parse_struct_t.piid[0],"2",1)==0)//读取浇水状态 浇水/没在浇水
 					{
-						if(TIM2->CCR4 == 400)
+						if(PAin(3) == 1)
 						{
 							MainLen = sprintf(MainBuffer,"%s %s %s %s %s\r","result","2","2","0","true");
 						}
@@ -2733,7 +2733,7 @@ void processing_data(void)
 					MainLenCopy = sprintf(MainBuffer,"%s %s %s %s %c ","result","2","1","0",WateringMode);//浇水模式
 					MainLen = MainLenCopy;
 					//是否在浇水
-					if(TIM2->CCR4 == 400)
+					if(PAin(3) == 1)
 					{
 						MainLenCopy = sprintf(MainBuffer+MainLen,"%s %s %s %s ","2","2","0","true");
 					}
@@ -3238,8 +3238,8 @@ void properties_changed(void)
 	
 	//浇水状态
 	//WateringState
-	if(WateringStateCopy != TIM2->CCR4){
-		WateringStateCopy = TIM2->CCR4;
+	if(WateringStateCopy != PAin(3)){
+		WateringStateCopy = PAin(3);
 		if(WateringStateCopy){
 			MainLen = sprintf(MainBuffer,"%s %s %s %s\r","properties_changed","2","2","true");
 			water_count++;//浇水次数加一

@@ -41,41 +41,41 @@ u32 timer_test=0;
 
 u32 fertility_control_cnt=0;
 
-void Timer2_Config(void)
-{
-	GPIO_InitTypeDef GPIO_InitStructure;
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	TIM_OCInitTypeDef TIM_OCInitStructure;
-	
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
-	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
+//void Timer2_Config(void)
+//{
+//	GPIO_InitTypeDef GPIO_InitStructure;
+//	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+//	TIM_OCInitTypeDef TIM_OCInitStructure;
+//	
+//	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
+//	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;				 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 		 //输出
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
-	GPIO_Init(GPIOA, &GPIO_InitStructure);					 //根据设定参数初始化
-	
-	TIM_TimeBaseInitStructure.TIM_Period = 1000-1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 72-1;
-	TIM_TimeBaseInitStructure.TIM_ClockDivision = 0;
-	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
-//	TIM_ARRPreloadConfig(TIM2, DISABLE);
-//	TIM_ClearITPendingBit(TIM2,  TIM_IT_Update);
-//	TIM_ITConfig(TIM2,  TIM_IT_Update, ENABLE);
-	
-	
-	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-	TIM_OCInitStructure.TIM_Pulse = 0;
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OC4Init(TIM2,&TIM_OCInitStructure);
-	
-	TIM_OC4PreloadConfig(TIM2,TIM_OCPreload_Enable);
-	TIM_ARRPreloadConfig(TIM2, ENABLE);
-	
-	TIM_Cmd(TIM2,ENABLE);
-}
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;				 
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 		 //输出
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);					 //根据设定参数初始化
+//	
+//	TIM_TimeBaseInitStructure.TIM_Period = 1000-1;
+//	TIM_TimeBaseInitStructure.TIM_Prescaler = 72-1;
+//	TIM_TimeBaseInitStructure.TIM_ClockDivision = 0;
+//	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+//	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
+////	TIM_ARRPreloadConfig(TIM2, DISABLE);
+////	TIM_ClearITPendingBit(TIM2,  TIM_IT_Update);
+////	TIM_ITConfig(TIM2,  TIM_IT_Update, ENABLE);
+//	
+//	
+//	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+//	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+//	TIM_OCInitStructure.TIM_Pulse = 0;
+//	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+//	TIM_OC4Init(TIM2,&TIM_OCInitStructure);
+//	
+//	TIM_OC4PreloadConfig(TIM2,TIM_OCPreload_Enable);
+//	TIM_ARRPreloadConfig(TIM2, ENABLE);
+//	
+//	TIM_Cmd(TIM2,ENABLE);
+//}
 
 
 

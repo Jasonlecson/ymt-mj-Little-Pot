@@ -24,7 +24,7 @@ void GpioInit(void)
 	继电器 PA3
 	蜂鸣器 PA4
 	灯     PA5*/
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_11;				 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_11;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 	GPIO_Init(GPIOA, &GPIO_InitStructure);					 //根据设定参数初始化
