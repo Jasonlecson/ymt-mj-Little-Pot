@@ -40,7 +40,7 @@ int timestampcnt = 0;
 u32 timer_test=0;
 
 u32 fertility_control_cnt=0;
-
+extern int a;
 //void Timer2_Config(void)
 //{
 //	GPIO_InitTypeDef GPIO_InitStructure;
@@ -134,7 +134,7 @@ void TIM4_IRQHandler(void)
 		
 		illumination_statistics_test = illumination_statistics_test+1;
 		illumination_statistics_timer_delay=illumination_statistics_timer_delay+1;//在定时器里面累加,设置统计时间间隔
-		
+		send_get_down_cnt++;//控制发送get_down
 		
 		Usart1IdleLoop(10);
 		
@@ -159,7 +159,7 @@ void TIM4_IRQHandler(void)
 		water_stageCnt++;
 		sensor_ligntCnt++;
 		DS18B20Cnt++;
-		if(uart_send_delay>0)
+		if(uart_send_delay>=0)
 		{
 			uart_send_delay--;
 		}
@@ -168,7 +168,6 @@ void TIM4_IRQHandler(void)
 		
 		send_get_net_cnt++;
 		
-		send_get_down_cnt++;//控制发送get_down
 		
 		if(system_start_timer < 60000){
 			system_start_timer++;

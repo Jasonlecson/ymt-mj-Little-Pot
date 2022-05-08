@@ -554,9 +554,9 @@ ARM Macro Assembler    Page 9
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\output\startup_stm32f10x_hd.d -o.\output\startup_stm32f10x_hd.o 
 -IC:\Users\lujin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Includ
-e -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="_
-_UVISION_VERSION SETA 532" --predefine="STM32F10X_MD SETA 1" --list=.\listing\s
-tartup_stm32f10x_hd.lst ..\Startup\startup_stm32f10x_hd.s
+e --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 536" --pr
+edefine="STM32F10X_MD SETA 1" --list=.\listing\startup_stm32f10x_hd.lst ..\Star
+tup\startup_stm32f10x_hd.s
 
 
 

@@ -3,38 +3,75 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.32.0.0
-Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+IDE-Version: μVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Jason Lecson, LIF, LIC=IK1BF-61FWJ-NNPAF-6P3K4-PK1D3-NNBMZ
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.32.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
 Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.32.0.0
+CPU DLL:         SARMCM3.DLL V5.36.0.0
 Dialog DLL:      DARMSTM.DLL V1.68.0.0
-Target DLL:      Segger\JL2CM3.dll V2.99.38.0
+Target DLL:      Segger\JL2CM3.dll V2.99.40.0
 Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
-C:\Users\lujin\Documents\WeChat Files\wxid_ohfcza83zm9k21\FileStorage\File\2021-10\米家小盆0005\BootLoader\Progect\Progect.uvprojx
+C:\Users\lujin\Documents\Git\ymt-mj-Little-Pot\BootLoader\Progect\Progect.uvprojx
 Project File Date:  11/01/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
+compiling core_cm3.c...
+compiling key.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling BufferManage.c...
+compiling System.c...
+..\User\System.c(48): warning:  #940-D: missing return statement at end of non-void function "GetSystemResetType" 
+  }
+..\User\System.c: 1 warning, 0 errors
+compiling delay.c...
+compiling iwdg.c...
+compiling gpio.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_flash.c...
+compiling usart.c...
+..\User\usart.c(161): warning:  #177-D: variable "value"  was declared but never referenced
+  	int value;
+..\User\usart.c(301): warning:  #177-D: variable "data"  was declared but never referenced
+  	uint8_t data = ch;
+..\User\usart.c: 2 warnings, 0 errors
+compiling stm32f10x_rcc.c...
 compiling main.c...
 ..\User\main.c(351): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *"
   							if(check(&Usart1BufferMemoryRead[3],128) ==1){//检测CRC是否正确
 ..\User\main.c: 1 warning, 0 errors
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_gpio.c...
+compiling cString.c...
+compiling LoopList.c...
+compiling stmflash.c...
+..\BootLoader\stmflash.c(119): warning:  #188-D: enumerated type mixed with another type
+  				FlashStatus = 0;//读出和写入的一致
+..\BootLoader\stmflash.c(121): warning:  #188-D: enumerated type mixed with another type
+  				FlashStatus = 5;
+..\BootLoader\stmflash.c: 2 warnings, 0 errors
+compiling IAP.c...
+..\BootLoader\IAP.c(87): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  	rbCreate(&rb_tIAP,IAPStructValue.Buff,UpdateReceiveBuffLen);//创建环形队列管理数组
+..\BootLoader\IAP.c: 1 warning, 0 errors
 linking...
 Program Size: Code=14480 RO-data=336 RW-data=280 ZI-data=10216  
 FromELF: creating hex file...
-".\output\Progect.axf" - 0 Error(s), 1 Warning(s).
+".\output\Progect.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -47,7 +84,7 @@ Package Vendor: Keil
   C:\Users\lujin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

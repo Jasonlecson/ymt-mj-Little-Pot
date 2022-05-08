@@ -305,7 +305,7 @@ void InitData(void);
 void processing_data(void);
 void properties_changed(void);
 void InitValue(void);
-
+int a = 0;
 int main(void)
 {
 	u16 data=0;
@@ -398,7 +398,7 @@ int main(void)
 			buff_manage_struct_t.SendLen = BufferManageRead(&buff_manage_struct_t,BMUsart1ReadBuff);
 			if(buff_manage_struct_t.SendLen>0)//有数据需要返回
 			{
-				uart_send_delay = 110;
+				uart_send_delay = 80;
 				
 				UsartOutStrIT(BMUsart1ReadBuff,buff_manage_struct_t.SendLen);
 			}
@@ -406,14 +406,14 @@ int main(void)
 			{
 				buff_manage_struct_t2.SendLen = BufferManageRead(&buff_manage_struct_t2,BMUsart1ReadBuff);
 				if(buff_manage_struct_t2.SendLen>0){
-					uart_send_delay = 110;
+					uart_send_delay = 80;
 					UsartOutStrIT(BMUsart1ReadBuff,buff_manage_struct_t2.SendLen);
 				}
 				else{
 					buff_manage_struct_cmd.SendLen = BufferManageRead(&buff_manage_struct_cmd,BMUsart1ReadBuff);
 					if(buff_manage_struct_cmd.SendLen>0)//发送询问指令
 					{
-						uart_send_delay = 110;
+						uart_send_delay = 80;
 						UsartOutStrIT(BMUsart1ReadBuff,buff_manage_struct_cmd.SendLen);
 					}
 				}
@@ -426,8 +426,8 @@ int main(void)
 			send_get_down_cnt=0;
 			BufferManageWrite(&buff_manage_struct_cmd,"get_down\r",9);
 		}
-		
-		if(InitModelFlag && InitVersionFlag && KeySmartConfig[3] == 0 && send_get_net_cnt>1000){
+
+		if(InitModelFlag && InitVersionFlag && KeySmartConfig[3] == 0 && send_get_net_cnt>200){
 			send_get_net_cnt = 0;
 			BufferManageWrite(&buff_manage_struct_cmd,"net\r",4);
 		}

@@ -303,7 +303,7 @@ void USART1_IRQHandler(void)//串口1中断服务程序
 			USART_SendData(USART1, *Usart1SendData);//
 			Usart1SendData++;
 		  Usart1SendDataCnt--;
-			uart_send_delay = 150;
+			uart_send_delay = 80;
     }
     else
     {

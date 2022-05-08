@@ -46,7 +46,7 @@ u32  MainLen=0;      //全局通用变量
 char *MainString;    //全局通用变量
 int  Len=0;
 
-u32  GetVersionInfoCnt=999999;//间隔发送  程序版本 使用
+u32  GetVersionInfoCnt=100;//间隔发送  程序版本 使用
 
 
 /*************BufferManager发送数据缓存管理*****************/
@@ -82,8 +82,8 @@ u8 get_time_posix[15]="time posix\r\n";//获取时间戳
 u8 get_net[6]="net\r\n";//获取网络状态
 
 
-u8 set_ble[25]="ble_config set 2692";//蓝牙
-u8 dump_ble[25]="[\"product id\":2692";
+u8 set_ble[25]="ble_config set 5531";//蓝牙
+u8 dump_ble[25]="[\"product id\":5531";
 
 
 u32  GetNetTimerCnt=0;
@@ -289,7 +289,7 @@ int main(void)
 			
 			
 			if(UpdataState==0){
-				if(GetVersionInfoCnt > 500)
+				if(GetVersionInfoCnt > 200)
 				{
 					BufferManageWrite(&buff_manage_struct_t,"get_down\r",9,&Len);
 					GetVersionInfoCnt=0;
